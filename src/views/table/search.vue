@@ -1,11 +1,11 @@
 <template>
   <div>
-    baseTable
+    searchTable
   </div>
 </template>
 
 <script>
 export default {
-  name: 'baseTable'
+  name: 'searchTable'
 }
 </script>

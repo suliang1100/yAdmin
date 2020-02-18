@@ -1,5 +1,9 @@
 <template>
   <div class="tool-bar">
+    <el-radio-group v-model="isCollapse">
+      <el-radio-button :label="false">展开</el-radio-button>
+      <el-radio-button :label="true">收起</el-radio-button>
+    </el-radio-group>
     <Breadcrumb />
   </div>
 </template>
@@ -8,6 +12,11 @@
 import Breadcrumb from './Breadcrumb';
 export default {
   name: 'ToolBar',
+  data(){
+    return {
+      isCollapse: false
+    }
+  },
   components: {
     Breadcrumb
   }

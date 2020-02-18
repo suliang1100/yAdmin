@@ -1,11 +1,11 @@
 <template>
   <div>
-    baseTable
+    <router-view />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'baseTable'
+  name: 'tableIndex'
 }
 </script>

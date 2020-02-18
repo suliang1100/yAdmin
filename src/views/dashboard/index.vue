@@ -1,5 +1,5 @@
 <template>
-  <div class="logo">
+  <div>
     Dashboard
   </div>
 </template>

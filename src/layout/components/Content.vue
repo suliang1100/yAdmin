@@ -14,5 +14,7 @@ export default {
   width: 100%;
   min-height: calc(100% - 64px);
   overflow: hidden;
+  box-sizing: border-box;
+  padding: 20px;
 }
 </style>

@@ -1,34 +1,50 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
+// 重写方法防止点击报错
+const routerPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return routerPush.call(this, location).catch(error=> error)
+}
+
 Vue.use(Router);
 
 import Layout from '@/layout/Index';
 const routes = [
     {
-        path: '/',
-        name: '首页',
-        icon: 'icon-shouye',
+        id: 'default',
+        path: '/',        
         redirect: '/dashboard',
         component: Layout,
         children: [
-            {
-                path: 'dashboard',
-                name: '仪表盘',
+            {   
+                id: 'dashboard',
+                path: '/dashboard',
+                icon: 'icon-shouye',
+                name: '控制台',
                 component: () => import('@/views/dashboard/index')
-            }
-        ]
-    },
-    {
-        path: '/table',
-        icon: 'icon-biaoge1',
-        name: '表格',
-        component: Layout,
-        children: [
+            },
             {
-                path: 'base',
-                name: '基础表格',
-                component: () => import('@/views/table/base')
+                id: 'tableIndex',
+                path: '/table',
+                icon: 'icon-biaoge1',
+                redirect: '/table/base',
+                name: '表格',
+                component: () => import('@/views/table/index'),
+                children: [
+                    {
+                        id: 'baseTable',
+                        path: '/table/base',
+                        name: '基础表格',
+                        component: () => import('@/views/table/base')
+                    },
+                    {
+                        id: 'searchTable',
+                        path: '/table/search',
+                        name: '查询表格',
+                        component: () => import('@/views/table/search')
+                    }
+                ]
             }
         ]
     }

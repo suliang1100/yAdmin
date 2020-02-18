@@ -1,6 +1,6 @@
 <template>
   <div class="logo">
-    xAdmin
+    yAdmin
   </div>
 </template>
 
