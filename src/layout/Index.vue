@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" :class="{'isCollapseMenu': menuCollapseStatus}">
     <div class="sidebar-container">
       <SideBar />
     </div>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import ToolBar from './components/ToolBar'
 import Content from './components/Content'
 import SideBar from './components/sideBar/SideBar'
@@ -20,7 +21,12 @@ export default {
     ToolBar,
     SideBar,
     Content
-  }
+  },
+  computed: {
+    ...mapGetters([
+      'menuCollapseStatus'
+    ])
+  },
 }
 </script>
 <style lang="scss" scoped>
@@ -44,5 +50,15 @@ export default {
 }
 .main-container{
   margin-left: $sideBarWidth;
+}
+.isCollapseMenu{
+  .sidebar-container{
+    width: $collapseSideBarWidth;
+    transition: 0.2s;
+  }
+  .main-container{
+    margin-left: $collapseSideBarWidth;
+    transition: 0.2s;
+  }
 }
 </style>

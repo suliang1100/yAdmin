@@ -1,24 +1,29 @@
 <template>
   <div class="tool-bar">
-    <el-radio-group v-model="isCollapse">
-      <el-radio-button :label="false">展开</el-radio-button>
-      <el-radio-button :label="true">收起</el-radio-button>
-    </el-radio-group>
+    <div class="toll-bar-collapse" @click="handleMenuCollapsesToggle">
+      <i :class=" menuCollapseStatus ? 'el-icon-s-unfold' : 'el-icon-s-fold'"></i>
+    </div>
     <Breadcrumb />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Breadcrumb from './Breadcrumb';
 export default {
   name: 'ToolBar',
-  data(){
-    return {
-      isCollapse: false
-    }
-  },
   components: {
     Breadcrumb
+  },
+  computed: {
+    ...mapGetters([
+      'menuCollapseStatus'
+    ])
+  },
+  methods: {
+    handleMenuCollapsesToggle(){
+      this.$store.dispatch('toggleMenuStatus');
+    }
   }
 }
 </script>
@@ -28,5 +33,15 @@ export default {
   height: 64px;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  overflow: hidden;
+  .toll-bar-collapse{
+    display: block;
+    float: left;
+    height: 64px;
+    line-height: 64px;
+    margin: 0 10px;
+    font-size: 20px;
+    cursor: pointer;
+  }
 }
 </style>

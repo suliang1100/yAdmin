@@ -46,7 +46,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .breadcrumb{
-    padding-left: 20px;
+    display: block;
+    height: 64px;
+    line-height: 64px;
     .el-breadcrumb{
         height: 64px;
         line-height: 64px;

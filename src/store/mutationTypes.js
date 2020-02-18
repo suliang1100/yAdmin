@@ -1,0 +1,1 @@
+export const MENU_TOGGLE_STATUS = 'MENU_TOGGLE_STATUS'; // 导航目录面板状态
