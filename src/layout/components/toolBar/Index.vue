@@ -4,16 +4,19 @@
       <i :class=" menuCollapseStatus ? 'el-icon-s-unfold' : 'el-icon-s-fold'"></i>
     </div>
     <Breadcrumb />
+    <Avatar />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import Breadcrumb from './Breadcrumb';
+import Avatar from './Avatar';
 export default {
   name: 'ToolBar',
   components: {
-    Breadcrumb
+    Breadcrumb,
+    Avatar
   },
   computed: {
     ...mapGetters([
@@ -34,6 +37,7 @@ export default {
   background: #fff;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
   overflow: hidden;
+  position: relative;
   .toll-bar-collapse{
     display: block;
     float: left;

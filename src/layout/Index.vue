@@ -12,7 +12,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import ToolBar from './components/ToolBar'
+import ToolBar from './components/toolBar/Index'
 import Content from './components/Content'
 import SideBar from './components/sideBar/SideBar'
 export default {
