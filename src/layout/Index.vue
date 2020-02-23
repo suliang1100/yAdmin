@@ -54,11 +54,11 @@ export default {
 .isCollapseMenu{
   .sidebar-container{
     width: $collapseSideBarWidth;
-    transition: 0.2s;
+    transition: 0.1s;
   }
   .main-container{
     margin-left: $collapseSideBarWidth;
-    transition: 0.2s;
+    transition: 0.1s;
   }
 }
 </style>

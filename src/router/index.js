@@ -45,6 +45,28 @@ const routes = [
                         component: () => import('@/views/table/search')
                     }
                 ]
+            },
+            {
+                id: 'formIndex',
+                path: '/form',
+                icon: 'icon-biaoge1',
+                redirect: '/form/base',
+                name: '表单',
+                component: () => import('@/views/table/index'),
+                children: [
+                    {
+                        id: 'baseTable',
+                        path: '/table/base',
+                        name: '基础表单',
+                        component: () => import('@/views/table/base')
+                    },
+                    {
+                        id: 'searchTable',
+                        path: '/table/search',
+                        name: '高级表单',
+                        component: () => import('@/views/table/search')
+                    }
+                ]
             }
         ]
     }

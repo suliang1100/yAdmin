@@ -6,6 +6,7 @@
       background-color="#001529"
       text-color="#f0f2f5"
       active-text-color="#ffd04b"
+      :collapse-transition="false"
       :collapse="menuCollapseStatus"
     >
       <div v-for="(item, index) in routes" :key="index">
@@ -57,7 +58,7 @@ export default {
 <style lang="scss" scoped>
 @import "~@/styles/variables.scss";
 .menu{
-    padding: 10px 0;
+    padding: 0;
     .side-menu{
       border: none;
       i{
@@ -72,6 +73,7 @@ export default {
 }
 </style>
 <style lang="scss">
+@import "~@/styles/variables.scss";
 .menu{
   .isCollapse{
     .el-icon-arrow-right{
@@ -80,6 +82,14 @@ export default {
     .iconfont{
       font-size: 18px !important;
       transition: 0.1s;
+    }
+  }
+  .el-menu-item,.el-submenu__title{
+    background-color: $themeColor !important;
+  }
+  .el-submenu.is-active{
+    .el-submenu__title{
+      background-color: $themeColor !important;
     }
   }
 }
