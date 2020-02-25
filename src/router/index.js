@@ -52,19 +52,13 @@ const routes = [
                 icon: 'icon-biaoge1',
                 redirect: '/form/base',
                 name: '表单',
-                component: () => import('@/views/table/index'),
+                component: () => import('@/views/form/index'),
                 children: [
                     {
-                        id: 'baseTable',
-                        path: '/table/base',
+                        id: 'baseForm',
+                        path: '/form/base',
                         name: '基础表单',
-                        component: () => import('@/views/table/base')
-                    },
-                    {
-                        id: 'searchTable',
-                        path: '/table/search',
-                        name: '高级表单',
-                        component: () => import('@/views/table/search')
+                        component: () => import('@/views/form/base')
                     }
                 ]
             }
